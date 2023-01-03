@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests
-        pip install json
+        pip install simplejson
         pip install time
     - name: Test with metro_data
       run: |
