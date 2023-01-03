@@ -21,15 +21,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.11.0
+    - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
-        python-version: "3.11.0"
+        python-version: "3.10"
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
         pip install requests
-        pip3 install json
-        pip3 install time
+        pip install simplejson
+        pip install time
     - name: Test with metro_data
       run: |
-        ./metro_data.py
+        bash ./metro_data.py
