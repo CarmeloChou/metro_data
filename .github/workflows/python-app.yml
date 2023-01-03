@@ -21,8 +21,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: runner
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
@@ -33,6 +31,7 @@ jobs:
           pip install requests
     - name: Test with metro_data
       run: |
+          cd runner
           python metro_data.py
     - name: commit
       run: |
@@ -40,7 +39,7 @@ jobs:
           git config --global user.name CarmeloChou
           git add .
           git commit -m "update" -a
-          git push -u origin runner
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
