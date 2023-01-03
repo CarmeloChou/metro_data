@@ -21,23 +21,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+       with:
+          ref: runner
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+          python-version: "3.10"
     - name: Install dependencies
       run: |
-        pip install requests
+          pip install requests
     - name: Test with metro_data
       run: |
-        python metro_data.py
+          python metro_data.py
     - name: commit
       run: |
-        git config --global user.email 554375635@qq.com
-        git config --global user.name CarmeloChou
-        git add .
-        git commit -m "update" -a
+          git config --global user.email 554375635@qq.com
+          git config --global user.name CarmeloChou
+          git add .
+          git commit -m "update" -a
+          git push -u origin runner
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
