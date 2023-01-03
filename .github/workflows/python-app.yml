@@ -1,4 +1,4 @@
-name: Generate Stats Images
+name: python-app
 
 on:
   push:
