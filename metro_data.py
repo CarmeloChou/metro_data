@@ -18,7 +18,7 @@ if __name__ == '__main__':
             results = get_data('http://dtkl.shmetro.com:9091/data/getLineTop5Data')
             start = time.strftime('%Y-%m-%d-%H-%M-%S')
             print(start)
-            with open('./metro/%s.txt'%start, 'w', encoding='utf-8') as w:
+            with open('./%s.txt'%start, 'w', encoding='utf-8') as w:
                 json.dump(results, w, ensure_ascii=False, indent=4)
             time.sleep(3500)
         else:
