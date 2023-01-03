@@ -39,7 +39,7 @@ jobs:
           git config --local user.name "CarmeloChou"
           git config --local user.email "554375635@qq.com"
           git add "*.txt" 
-          git commit -m "update metro_data" 
+          git commit -m "update runner" 
           git push -u origin runner
 
     - name: Push changes
