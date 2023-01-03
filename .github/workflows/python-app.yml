@@ -36,8 +36,9 @@ jobs:
       run: |
           git config --local user.name "CarmeloChou"
           git config --local user.email "554375635@qq.com"
-          git add README.md
-          git commit -m "update readme.md" 
+          git add "*.txt" 
+          git commit -m "update metro_data" 
+          git push -u origin runner
 
     - name: Push changes
       uses: ad-m/github-push-action@master
