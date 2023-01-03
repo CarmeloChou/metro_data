@@ -38,7 +38,7 @@ jobs:
           git config --global user.name 'CarmeloChou'
           git add .
           git commit -m "update" -a
-          git push -u origin runner
+          
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
