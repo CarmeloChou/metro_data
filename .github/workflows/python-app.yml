@@ -44,6 +44,3 @@ jobs:
       with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
 
-          clean: true
-          username: CarmeloChou 
-          email: 554375635@qq.com
