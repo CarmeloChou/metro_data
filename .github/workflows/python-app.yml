@@ -31,3 +31,13 @@ jobs:
     - name: Test with metro_data
       run: |
         python metro_data.py
+    - name: commit
+      run: |
+        git config --global user.email 554375635@qq.com
+        git config --global user.name CarmeloChou
+        git add .
+        git commit -m "update" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
