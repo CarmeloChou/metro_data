@@ -1,55 +1,45 @@
-name: python-app
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
 
 on:
   push:
-    branches: [ master ]
-  schedule:
-    - cron: "* 0 * * *"
-  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule: 
+    - cron: '10 * * * *'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
-    runs-on: ubuntu-latest
 
+    runs-on: ubuntu-latest
+    
     steps:
-    # Check out repository under $GITHUB_WORKSPACE, so the job can access it
     - uses: actions/checkout@v3
 
-    # Run using Python 3.8 for consistency and aiohttp
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
       with:
-        python-version: '3.8'
-        architecture: 'x64'
-        cache: 'pip'
-        ref: runner
-
-    # Install dependencies with `pip`
-    - name: Install requirements
+          python-version: "3.10"
+    - name: Install dependencies
       run: |
-        pip install requests
-
-    # Generate all statistics images
-    - name: Generate images
+          pip install requests
+    - name: Test with metro_data
       run: |
-        python3 --version
-        python3 metro_data.py
-      env:
-
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        EXCLUDED: ${{ secrets.EXCLUDED }}
-        EXCLUDED_LANGS: ${{ secrets.EXCLUDED_LANGS }}
-        EXCLUDE_FORKED_REPOS: true
-
-    # Commit all changed files to the repository
-    - name: Commit to the repo
+          python metro_data.py
+    - name: commit
       run: |
-        git config --global user.name "CarmeloChou"
-        git config --global user.email "554375635@qq.com"
-        git add .
-        # Force the build to succeed, even if no files were changed
-        git commit -m 'Update generated files' || true
-        git push
+          git config --global user.email 554375635@qq.com
+          git config --global user.name CarmeloChou
+          git add .
+          git commit -m "update" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+          access_token: ${{ secrets.ACCESS_TOKEN }}
