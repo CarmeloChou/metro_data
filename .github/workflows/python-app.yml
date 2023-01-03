@@ -36,10 +36,11 @@ jobs:
       run: |
           git config --local user.name "CarmeloChou"
           git config --local user.email "554375635@qq.com"
-          git add .
-          git commit -m "update" -a
-          git push origin main
+          git add README.md
+          git commit -m "update readme.md" 
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: runner
