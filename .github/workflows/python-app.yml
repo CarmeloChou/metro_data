@@ -43,7 +43,6 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          personal_token: ${{ secrets.ACCESS_TOKEN }}
           src_path: /.
           dst_path: /runner/
           dst_owner: CarmeloChou
