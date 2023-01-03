@@ -28,8 +28,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple json
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple time
+        pip install json
+        pip install time
     - name: Test with metro_data
       run: |
         ./metro_data.py
