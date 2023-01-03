@@ -42,4 +42,4 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-          access_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
