@@ -43,10 +43,6 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          dst_owner: CarmeloChou
-          dst_repo_name: CarmeloChou
-          dst_branch: master
-          src_branch: runner
 
           clean: true
           username: CarmeloChou 
