@@ -33,8 +33,8 @@ jobs:
         python metro_data.py
     - name: commit
       run: |
-        git config --global user.email 554375635@qq.com
-        git config --global user.name CarmeloChou
+        git config --global user.email '554375635@qq.com'
+        git config --global user.name 'CarmeloChou'
         git add .
         git commit -m "update" -a
     - name: Push changes
